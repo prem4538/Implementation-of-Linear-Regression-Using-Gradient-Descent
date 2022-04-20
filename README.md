@@ -46,9 +46,9 @@ httpd.serve_forever()
 
 ## Output:
 ### study hours and scores
-![study hours and scores](./images/studyhours and scores.png)
+![study hours and scores](./images/studyhoursandscores.png)
 ### study hours vs scores
-![study hours vs scores](./images/studyhours vs scores.png)
+![study hours vs scores](./images/studyhoursvsscores.png)
 
 
 
