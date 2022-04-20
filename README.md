@@ -45,7 +45,11 @@ httpd.serve_forever()
 ```
 
 ## Output:
-![linear regression using gradient descent](sam.png)
+### study hours and scores
+![study hours and scores](./images/studyhours and scores.png)
+### study hours vs scores
+![study hours vs scores](./images/studyhours vs scores.png)
+
 
 
 ## Result:
