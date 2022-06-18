@@ -19,29 +19,40 @@ run necessary code in terminal and generate output and take screen shot of it ma
 
 ## Program:
 ```
-from http.server import HTTPServer, BaseHTTPRequestHandler
-content = """
-<!DOCTYPE html>
-<html>
-<head>
-<title>linear regression</title>
-</head>
-<body>
-<h1>Welcome</h1>
-</body>
-</html>
-"""
-class myhandler(BaseHTTPRequestHandler):
-    def do_GET(self):
-        print("request received")
-        self.send_response(200)
-        self.send_header('content-type', 'text/html; charset=utf-8')
-        self.end_headers()
-        self.wfile.write(content.encode())
-server_address = ('',8080)
-httpd = HTTPServer(server_address,myhandler)
-print("linear regression is running...")
-httpd.serve_forever()
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+data = pd.read_csv("student_scores.csv")
+data.head()
+data.isnull().sum()
+x = data.Hours
+x.head()
+y = data.Scores
+y.head()
+n = len(x)
+m = 0
+c = 0
+L = 0.001
+loss = []
+for i in range(10000):
+    ypred = m*x+c
+    MSE = (1/n)*sum((ypred-y)*2)
+    dm = (2/n)*sum(x(ypred-y))
+    dc = (2/n)*sum(ypred-y)
+    c = c-L*dc
+    m = m-L*dm
+    loss.append(MSE)
+    #print(m)
+print(m,c)
+y_pred = m*x+c
+plt.scatter(x,y,color = "cyan")
+plt.plot(x,y_pred)
+plt.xlabel("Study hours")
+plt.ylabel("Scores")
+plt.title("Study hours .vs. Scores")
+plt.plot(loss)
+plt.xlabel("Iterations")
+plt.ylabel("loss")
 ```
 
 ## Output:
